@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Grid, Header } from 'semantic-ui-react'
+import { Container, Header } from 'semantic-ui-react'
 import axios from 'axios'
 import SearchForm from './components/SearchForm'
 
@@ -20,7 +20,8 @@ function App() {
     if(input){
       try {
         let response = await axios.get(`http://www.omdbapi.com/?&apikey=${API_KEY}&type=movie&s=${input}`)
-        setData(response.data.results)
+        setData(response.data)
+        console.log(input, response.data)
         console.log(data)
       } catch(error) {
         console.error('Error fetching and parsing data', error)
@@ -31,7 +32,7 @@ function App() {
   return (
     <Container>
       <Header as='h1' style={{padding: '1rem'}}>Flix Noms</Header>
-      <SearchForm />
+      <SearchForm doSearch={doSearch}/>
     </Container>
   );
 }

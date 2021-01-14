@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button } from 'semantic-ui-react'
+import { Form } from 'semantic-ui-react'
 
 const SearchForm = props => {
 
@@ -8,20 +8,17 @@ const SearchForm = props => {
     const handleChange = (event) => { 
         // Update state 
         setInputValue(event.target.value)
-    }
-
-    const doTheSearch = (event) => {
-        console.log(event.target.value)
+        props.doSearch(event.target.value)
     }
 
     return (
-        <Form onChange={doTheSearch}>
+        <Form>
         <Form.Input type="search"
             onChange={handleChange}
             name="search"
+            value={input}
             placeholder="Search for movies..."
         />
-        <Button type="submit" id="submit">search</Button>
         </Form>
     )
 }
