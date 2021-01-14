@@ -7,7 +7,9 @@ const Movie = props => {
 
     return (
         <>
-            <p>{Title} ({Year}) <Button floated='right' size='tiny'>Nominate</Button> </p>
+            <p>{Title} ({Year}) 
+                <Button floated='right' size='tiny'>Nominate</Button> 
+            </p>
         </>
     )
 }

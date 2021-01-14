@@ -29,7 +29,7 @@ function App() {
 
       <SearchForm doSearch={doSearch} />
 
-      <Grid columns={2} divided>
+      <Grid columns={2} divided stackable>
 
         <Grid.Row>
           <Grid.Column>
