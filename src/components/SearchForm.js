@@ -7,13 +7,15 @@ const SearchForm = props => {
 
     const handleChange = (event) => { 
         // Update state 
-        event.persist()
         setInputValue(event.target.value)
-        console.log(input)
+    }
+
+    const doTheSearch = (event) => {
+        console.log(event.target.value)
     }
 
     return (
-        <Form>
+        <Form onChange={doTheSearch}>
         <Form.Input type="search"
             onChange={handleChange}
             name="search"
