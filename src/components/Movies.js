@@ -6,6 +6,7 @@ const Movies = props => {
     const response = props.movies.Response
     
     let movies;
+    
     if(response === 'True') {
         movies = movieResults.map(movie => {
             return (

@@ -3,6 +3,7 @@ import { Container, Grid, Header } from 'semantic-ui-react'
 import axios from 'axios'
 import SearchForm from './components/SearchForm'
 import Movies from './components/Movies'
+import Nominations from './components/Nominations'
 
 function App() {
 
@@ -23,9 +24,25 @@ function App() {
 
   return (
     <Container>
+
       <Header as='h1' style={{padding: '1rem'}}>Flix Noms</Header>
-      <SearchForm doSearch={doSearch}/>
-      <Movies movies={data}/>
+
+      <SearchForm doSearch={doSearch} />
+
+      <Grid columns={2} divided>
+
+        <Grid.Row>
+          <Grid.Column>
+            <Movies movies={data} />
+          </Grid.Column>
+
+          <Grid.Column>
+            <Nominations />
+          </Grid.Column>
+        </Grid.Row>
+
+      </Grid>
+
     </Container>
   )
 }
