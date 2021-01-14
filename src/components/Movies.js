@@ -1,5 +1,6 @@
 import React from 'react'
 import Movie from './Movie'
+import { List } from 'semantic-ui-react'
 
 const Movies = props => {
     const movieResults = props.movies.Search
@@ -10,9 +11,9 @@ const Movies = props => {
     if(response === 'True') {
         movies = movieResults.map(movie => {
             return (
-                    <li key={movie.imdbID}>
+                    <List.Item key={movie.imdbID}>
                         <Movie movie={movie} />
-                    </li>
+                    </List.Item>
             )
         })
     }
@@ -20,9 +21,9 @@ const Movies = props => {
     return (
         <div>
             <h1>Movie Results</h1>
-            <ul>
+            <List divided verticalAlign='middle'>
                 {movies}
-            </ul>
+            </List>
         </div>
     )
 }

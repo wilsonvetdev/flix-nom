@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Container, Grid, Header } from 'semantic-ui-react'
+import React, { useState } from 'react'
+import { Container, Grid } from 'semantic-ui-react'
 import axios from 'axios'
 import SearchForm from './components/SearchForm'
 import Movies from './components/Movies'
@@ -23,9 +23,9 @@ function App() {
   }
 
   return (
-    <Container>
+    <Container textAlign='center' style={{marginTop: '5rem'}}>
 
-      <Header as='h1' style={{padding: '1rem'}}>Flix Noms</Header>
+      <h1>Flix Noms</h1>
 
       <SearchForm doSearch={doSearch} />
 

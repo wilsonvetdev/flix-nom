@@ -19,6 +19,7 @@ const SearchForm = props => {
             value={input}
             placeholder="Search for movies..."
         />
+        <br></br>
         </Form>
     )
 }
