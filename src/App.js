@@ -33,7 +33,6 @@ function App() {
     })
 
     setNomination(filteredNominations)
-    console.log(filteredNominations)
   }
 
   return (
