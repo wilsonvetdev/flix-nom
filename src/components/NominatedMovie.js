@@ -6,7 +6,7 @@ const NominatedMovie = props => {
     const { Title, Year } = props.movie
 
     const handleClick = (event) => {
-        props.removeNomination(props.movie.imdbID)
+        props.removeNomination(props.movie)
     }
 
     return (

@@ -24,22 +24,22 @@ function App() {
   }
 
   const isMovieInNomination = movieObj => {
-    let result = nominatedMovies.find(movie => {
-      return movie.imdbID === movieObj.imdbID
-    })
+      let result = nominatedMovies.find(movie => {
+        return movie.imdbID === movieObj.imdbID
+      })
 
     return result
   }
 
   const getNomination = (movieObj) => {
-    if(!isMovieInNomination(movieObj)) {
+    if(!isMovieInNomination(movieObj) && nominatedMovies.length < 5) {
       setNomination([...nominatedMovies, movieObj])
     }
   }
 
-  const removeNomination = (movieObjID) => {
+  const removeNomination = (movieObj) => {
     let filteredNominations = nominatedMovies.filter(movie => {
-      return movie.imdbID !== movieObjID
+      return movie.imdbID !== movieObj.imdbID
     })
 
     setNomination(filteredNominations)
@@ -56,11 +56,17 @@ function App() {
 
         <Grid.Row>
           <Grid.Column>
-            <Movies movies={data} getNomination={getNomination} />
+            <Movies 
+              movies={data} 
+              getNomination={getNomination} 
+            />
           </Grid.Column>
 
           <Grid.Column>
-            <Nominations nominatedMovies={nominatedMovies} removeNomination={removeNomination} />
+            <Nominations 
+              nominatedMovies={nominatedMovies} 
+              removeNomination={removeNomination}
+            />
           </Grid.Column>
         </Grid.Row>
 
