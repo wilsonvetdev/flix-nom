@@ -3,6 +3,7 @@ import Movie from './Movie'
 import { List } from 'semantic-ui-react'
 
 const Movies = props => {
+
     const movieResults = props.movies.Search
     const response = props.movies.Response
     
@@ -12,7 +13,10 @@ const Movies = props => {
         movies = movieResults.map(movie => {
             return (
                     <List.Item key={movie.imdbID}>
-                        <Movie movie={movie} />
+                        <Movie 
+                            movie={movie} 
+                            getNomination={props.getNomination}
+                        />
                     </List.Item>
             )
         })

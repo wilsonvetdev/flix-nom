@@ -9,7 +9,8 @@ function App() {
 
   const API_KEY = process.env.REACT_APP_MOVIE_API_KEY
 
-  const [data, setData] = useState([])
+  const [ data, setData ] = useState([])
+  const [ nominatedMovies, setNomination ] = useState([])
 
   const doSearch = async(input) => {
     if(input){
@@ -20,6 +21,10 @@ function App() {
         console.error('Error fetching and parsing data', error)
       }
     }
+  }
+
+  const getNomination = (movieObj) => {
+    setNomination([...nominatedMovies, movieObj])
   }
 
   return (
@@ -33,11 +38,11 @@ function App() {
 
         <Grid.Row>
           <Grid.Column>
-            <Movies movies={data} />
+            <Movies movies={data} getNomination={getNomination} />
           </Grid.Column>
 
           <Grid.Column>
-            <Nominations />
+            <Nominations nominatedMovies={nominatedMovies} />
           </Grid.Column>
         </Grid.Row>
 

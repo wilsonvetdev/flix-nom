@@ -3,7 +3,7 @@ import { Form } from 'semantic-ui-react'
 
 const SearchForm = props => {
 
-    const [input, setInputValue] = useState('')
+    const [ input, setInputValue ] = useState('')
 
     const handleChange = (event) => { 
         // Update state 
