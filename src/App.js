@@ -23,8 +23,18 @@ function App() {
     }
   }
 
+  const isMovieInNomination = movieObj => {
+    let result = nominatedMovies.find(movie => {
+      return movie.imdbID === movieObj.imdbID
+    })
+
+    return result
+  }
+
   const getNomination = (movieObj) => {
-    setNomination([...nominatedMovies, movieObj])
+    if(!isMovieInNomination(movieObj)) {
+      setNomination([...nominatedMovies, movieObj])
+    }
   }
 
   const removeNomination = (movieObjID) => {
