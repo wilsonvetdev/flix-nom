@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from 'semantic-ui-react'
 
 const Movie = props => {
 
     const { Title, Year } = props.movie
-    const [ clicked, setClick ] = useState(false)
 
     const handleClick = (event) => {
-        setClick(true)
         props.getNomination(props.movie)
     }
 
@@ -15,7 +13,7 @@ const Movie = props => {
         <>
             <p>
                 {Title} ({Year}) 
-                <Button disabled={clicked} floated='right' size='tiny' onClick={handleClick}>
+                <Button floated='right' size='tiny' onClick={handleClick}>
                     Nominate
                 </Button> 
             </p>
