@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { Container, Grid, Header } from 'semantic-ui-react'
+import React, { useState } from 'react'
+import { Container, Grid } from 'semantic-ui-react'
 import axios from 'axios'
 import SearchForm from './components/SearchForm'
 import Movies from './components/Movies'
+import Nominations from './components/Nominations'
 
 function App() {
 
   const API_KEY = process.env.REACT_APP_MOVIE_API_KEY
 
-  const [data, setData] = useState([])
+  const [ data, setData ] = useState([])
+  const [ nominatedMovies, setNomination ] = useState([])
 
   const doSearch = async(input) => {
     if(input){
@@ -21,11 +23,39 @@ function App() {
     }
   }
 
+  const getNomination = (movieObj) => {
+    setNomination([...nominatedMovies, movieObj])
+  }
+
+  const removeNomination = (movieObjID) => {
+    let filteredNominations = nominatedMovies.filter(movie => {
+      return movie.imdbID !== movieObjID
+    })
+
+    setNomination(filteredNominations)
+  }
+
   return (
-    <Container>
-      <Header as='h1' style={{padding: '1rem'}}>Flix Noms</Header>
-      <SearchForm doSearch={doSearch}/>
-      <Movies movies={data}/>
+    <Container textAlign='center' style={{marginTop: '5rem'}}>
+
+      <h1>Flix Noms</h1>
+
+      <SearchForm doSearch={doSearch} />
+
+      <Grid columns={2} divided stackable>
+
+        <Grid.Row>
+          <Grid.Column>
+            <Movies movies={data} getNomination={getNomination} />
+          </Grid.Column>
+
+          <Grid.Column>
+            <Nominations nominatedMovies={nominatedMovies} removeNomination={removeNomination} />
+          </Grid.Column>
+        </Grid.Row>
+
+      </Grid>
+
     </Container>
   )
 }
