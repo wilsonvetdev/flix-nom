@@ -1,23 +1,16 @@
-import React, { useState } from 'react'
-import { List, Button } from 'semantic-ui-react'
+import React from 'react'
+import { List } from 'semantic-ui-react'
+import NominatedMovie from './NominatedMovie'
 
 const Nominations = props => {
-
-    const [ clicked, setClick ] = useState(false)
-
-    const handleClick = (event) => {
-        setClick(true)
-    }
 
     const movies = props.nominatedMovies.map(movie => {
         return (
             <List.Item key={movie.imdbID}>
-                <p>
-                    {movie.Title} ({movie.Year})
-                    <Button disabled={clicked} floated='right' size='tiny' onClick={handleClick}>
-                        Remove
-                    </Button> 
-                </p>
+                <NominatedMovie
+                    movie={movie}
+                    removeNomination={props.removeNomination}
+                />
             </List.Item>
         )
     })

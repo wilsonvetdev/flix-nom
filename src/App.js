@@ -27,6 +27,15 @@ function App() {
     setNomination([...nominatedMovies, movieObj])
   }
 
+  const removeNomination = (movieObjID) => {
+    let filteredNominations = nominatedMovies.filter(movie => {
+      return movie.imdbID !== movieObjID
+    })
+
+    setNomination(filteredNominations)
+    console.log(filteredNominations)
+  }
+
   return (
     <Container textAlign='center' style={{marginTop: '5rem'}}>
 
@@ -42,7 +51,7 @@ function App() {
           </Grid.Column>
 
           <Grid.Column>
-            <Nominations nominatedMovies={nominatedMovies} />
+            <Nominations nominatedMovies={nominatedMovies} removeNomination={removeNomination} />
           </Grid.Column>
         </Grid.Row>
 
