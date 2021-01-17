@@ -2,13 +2,15 @@
 
 This is a side project I did to practice using hooks since it is best practice now compared to using class components. 
 The single page application allows a user to search for movies with the search field, and also allows add movies to a nomination list.
-The nomination list is automatically saved to their browser, so even if they refresh or leave page - the list stays on the browser until they remove the movies.
+The nomination list is automatically saved to their browser, so even if they refresh or leave the page - the list stays on the browser until they remove the movies.
 
 # Tech
 
 * React(Components, Hooks)
 * Semantic UI React for a little bit of styling
 * localStorage for saving nomination list
+* Heroku - deployment
+* API - http://www.omdbapi.com/
 
 # Set-Up
 
