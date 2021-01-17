@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Grid } from 'semantic-ui-react'
 import axios from 'axios'
 import SearchForm from './components/SearchForm'
 import Movies from './components/Movies'
 import Nominations from './components/Nominations'
+import Banner from './components/Banner'
 
 function App() {
 
@@ -11,6 +12,19 @@ function App() {
 
   const [ data, setData ] = useState([])
   const [ nominatedMovies, setNomination ] = useState([])
+
+  useEffect(() => {
+    const json = localStorage.getItem('nominations')
+    const savedNominations = JSON.parse(json)
+    if(savedNominations) {
+      setNomination(savedNominations)
+    }
+  }, [])
+
+  useEffect(() => {
+    const json = JSON.stringify(nominatedMovies)
+    localStorage.setItem('nominations', json)
+  }, [nominatedMovies])
 
   const doSearch = async(input) => {
     if(input){
@@ -51,6 +65,8 @@ function App() {
       <h1>Flix Noms</h1>
 
       <SearchForm doSearch={doSearch} />
+
+      { nominatedMovies.length === 5 ? <Banner /> : null }
 
       <Grid columns={2} divided stackable>
 

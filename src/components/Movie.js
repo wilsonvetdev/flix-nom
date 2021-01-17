@@ -13,7 +13,10 @@ const Movie = props => {
         <>
             <p>
                 {Title} ({Year}) 
-                <Button floated='right' size='tiny' onClick={handleClick}>
+                <Button 
+                    floated='right' 
+                    size='tiny'
+                    onClick={handleClick}>
                     Nominate
                 </Button> 
             </p>
