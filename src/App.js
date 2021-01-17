@@ -29,7 +29,7 @@ function App() {
   const doSearch = async(input) => {
     if(input){
       try {
-        let response = await axios.get(`http://www.omdbapi.com/?&apikey=${API_KEY}&type=movie&s=${input}`)
+        let response = await axios.get(`https://www.omdbapi.com/?&apikey=${API_KEY}&type=movie&s=${input}`)
         setData(response.data)
       } catch(error) {
         console.error('Error fetching and parsing data', error)
