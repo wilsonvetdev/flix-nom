@@ -20,7 +20,7 @@ const Movies = props => {
                     </List.Item>
             )
         })
-    }
+    } 
 
     return (
         <div>
