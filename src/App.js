@@ -62,7 +62,11 @@ function App() {
   return (
     <Container textAlign='center' style={{marginTop: '5rem'}}>
 
-      <h1>Flix Noms</h1>
+      <h1>Flix Noms 
+        <a href='https://github.com/wilsonvetdev' target='_blank' rel='noreferrer'> By Wilson</a>
+        -
+        <a href='https://github.com/wilsonvetdev/flix-nom' target='_blank' rel='noreferrer'>GitHub Repo</a>
+      </h1>
 
       <SearchForm doSearch={doSearch} />
 
