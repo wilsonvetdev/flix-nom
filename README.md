@@ -1,7 +1,7 @@
 # Flix-Nom
 
 This is a side project I did to practice using hooks since it is best practice now compared to using class components. 
-The single page application allows a user to search for movies with the search field, and also allows add movies to a nomination list.
+The single page application allows a user to search for movies with the search field, and also allow a user to add movies to a nomination list.
 The nomination list is automatically saved to their browser, so even if they refresh or leave the page - the list stays on the browser until they remove the movies.
 
 # Tech
