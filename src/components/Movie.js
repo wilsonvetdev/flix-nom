@@ -14,6 +14,7 @@ const Movie = props => {
             <p>
                 {Title} ({Year}) 
                 <Button 
+                    disabled={props.isMovieInNomination(props.movie)}
                     floated='right' 
                     size='tiny'
                     onClick={handleClick}>

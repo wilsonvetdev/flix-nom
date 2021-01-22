@@ -16,6 +16,7 @@ const Movies = props => {
                         <Movie 
                             movie={movie} 
                             getNomination={props.getNomination}
+                            isMovieInNomination={props.isMovieInNomination}
                         />
                     </List.Item>
             )
