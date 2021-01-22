@@ -42,7 +42,7 @@ function App() {
         return movie.imdbID === movieObj.imdbID
       })
 
-    return result
+    return result !== undefined ? true : false
   }
 
   const getNomination = (movieObj) => {
@@ -79,6 +79,7 @@ function App() {
             <Movies 
               movies={data} 
               getNomination={getNomination} 
+              isMovieInNomination={isMovieInNomination}
             />
           </Grid.Column>
 
